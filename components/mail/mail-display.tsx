@@ -38,7 +38,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Mail } from "@/app/examples/mail/data";
+import { Mail } from "@/app/dashboard/data";
 
 interface MailDisplayProps {
   mail: Mail | null;
@@ -185,7 +185,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
         </DropdownMenu>
       </div>
       <Separator />
-      {mail ? (
+      {/* {mail ? (
         <div className="flex flex-1 flex-col">
           <div className="flex items-start p-4">
             <div className="flex items-start gap-4 text-sm">
@@ -248,7 +248,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
         <div className="p-8 text-center text-muted-foreground">
           No message selected
         </div>
-      )}
+      )} */}
     </div>
   );
 }
