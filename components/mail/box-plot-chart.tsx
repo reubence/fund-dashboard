@@ -1,5 +1,6 @@
 import { ResponsiveBoxPlot } from "@nivo/boxplot";
 import { NextApiResponse } from "next";
+import { env } from "process";
 import React from "react";
 
 export function BoxPlotChart() {
@@ -10,8 +11,6 @@ export function BoxPlotChart() {
   const fetchBoxPlotData = async () => {
     const backtestId = "12c9d129-3fef-4aba-9109-9921b667b218";
     const url = `https://eventhorizonfund.net/api/dashboard/backtest/get_box_plot_data/?backtest_id=${backtestId}`;
-    const bearerToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlaHBfZnJvbnRfdHJpYWwiLCJleHAiOjE3MDU3NjE3OTh9.LFwzdiy0Iaa56on0KAVDKecm79EGT1yp9IeHaVQ6N1Y"; // Replace with your actual token
 
     setIsLoading(true);
 
@@ -19,7 +18,7 @@ export function BoxPlotChart() {
       const response = await fetch(url, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${bearerToken}`,
+          Authorization: `Bearer ${env.BEARER_TOKEN}`,
           "Content-Type": "application/json",
         },
       });
