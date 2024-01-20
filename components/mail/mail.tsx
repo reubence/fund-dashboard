@@ -31,6 +31,17 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { CombinedLineChart } from "./combined-line-chart";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
+import { DataTableDemo } from "./data-table";
+import { BoxPlotChart } from "./box-plot-chart";
 
 interface MailProps {
   accounts: {
@@ -186,11 +197,11 @@ export function Mail({
                 </div>
               </form>
             </div>
-            <TabsContent value="all" className="m-0">
-              <MailList items={mails} />
+            <TabsContent value="all" className="m-0 h-screen">
+              <CombinedLineChart />
             </TabsContent>
             <TabsContent value="unread" className="m-0">
-              <MailList items={mails.filter((item) => !item.read)} />
+              <BoxPlotChart />
             </TabsContent>
           </Tabs>
         </ResizablePanel>
@@ -199,6 +210,7 @@ export function Mail({
           <MailDisplay
             mail={mails.find((item) => item.id === mail.selected) || null}
           />
+          <DataTableDemo />
         </ResizablePanel>
       </ResizablePanelGroup>
     </TooltipProvider>
