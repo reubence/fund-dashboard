@@ -1,6 +1,5 @@
 import { ResponsiveBoxPlot } from "@nivo/boxplot";
 import { NextApiResponse } from "next";
-import { env } from "process";
 import React from "react";
 
 export function BoxPlotChart() {
@@ -18,7 +17,7 @@ export function BoxPlotChart() {
       const response = await fetch(url, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${env.BEARER_TOKEN}`,
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
           "Content-Type": "application/json",
         },
       });
