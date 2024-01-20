@@ -1,9 +1,10 @@
 import { ResponsiveBoxPlot } from "@nivo/boxplot";
+import { NextApiResponse } from "next";
 import React from "react";
 
 export function BoxPlotChart() {
   const [data, setData] = React.useState<any[]>([]); // Update the type of data to be an array
-  const [error, setError] = React.useState(null);
+  const [error, setError] = React.useState<Error>();
   const [isLoading, setIsLoading] = React.useState(false);
 
   const fetchBoxPlotData = async () => {
@@ -32,7 +33,7 @@ export function BoxPlotChart() {
 
       setData(dataForBoxPlot);
     } catch (error) {
-      setError(error.message);
+      setError(error as Error);
     } finally {
       setIsLoading(false);
     }
@@ -44,7 +45,7 @@ export function BoxPlotChart() {
 
   if (isLoading)
     return <div className="ml-8 -mt-4 h-screen w-full">Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   console.log(data);
   return (
@@ -135,7 +136,7 @@ export function BoxPlotChart() {
 }
 
 // Helper function to calculate statistics
-function calculateStatistics(values) {
+function calculateStatistics(values: number[]) {
   const n = values.length;
   const mean = values.reduce((acc, val) => acc + val, 0) / n;
   const variance = values.reduce((acc, val) => acc + (val - mean) ** 2, 0) / n;
@@ -146,7 +147,7 @@ function calculateStatistics(values) {
 }
 
 // Function to transform the data
-function transformData(apiResponse) {
+function transformData(apiResponse: NextApiResponse) {
   const transformedData = [];
 
   // Process each group in the apiResponse

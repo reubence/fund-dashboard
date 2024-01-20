@@ -46,7 +46,7 @@ import { BoxPlotChart } from "./box-plot-chart";
 interface MailProps {
   accounts: {
     label: string;
-    email: string;
+    id: string;
     icon: React.ReactNode;
   }[];
   mails: Mail[];
