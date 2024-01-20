@@ -170,7 +170,7 @@ export function Mail({
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-          <Tabs defaultValue="all">
+          <Tabs defaultValue="unread">
             <div className="flex items-center px-4 py-2">
               {/* <h1 className="text-xl font-bold">Inbox</h1> */}
               <TabsList className="ml-auto">
