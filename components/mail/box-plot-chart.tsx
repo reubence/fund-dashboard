@@ -133,7 +133,7 @@ export function BoxPlotChart() {
   );
 }
 
-// Helper function to calculate statistics
+// Helpers function to calculate statistics
 function calculateStatistics(values: number[]) {
   const n = values.length;
   const mean = values.reduce((acc, val) => acc + val, 0) / n;
