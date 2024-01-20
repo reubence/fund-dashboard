@@ -58,7 +58,7 @@ interface MailProps {
 export function Mail({
   accounts,
   mails,
-  defaultLayout = [125, 440, 155],
+  defaultLayout = [125, 440, 180],
   defaultCollapsed = false,
   navCollapsedSize,
 }: MailProps) {
